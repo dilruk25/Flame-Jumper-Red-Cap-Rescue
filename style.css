@@ -1,0 +1,15 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(background.png);
+
+}
+
+.body {
+    margin: 0px;
+}
+
+.player {
+    height: 250px;
+    margin-top: 320px;
+}
