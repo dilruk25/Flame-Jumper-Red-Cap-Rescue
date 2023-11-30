@@ -1,3 +1,14 @@
+//run sound
+var runSound = new Audio("run.mp3");
+runSound.loop = true;
+
+//jump sound
+var jumpSound = new Audio("jump.mp3");
+
+//dead sound
+var deadSound = new Audio('dead.mp3');
+
+
 function keyCheck(event) {
 
     //enter
@@ -7,8 +18,8 @@ function keyCheck(event) {
 
             blockWorkerId = setInterval(createBlock, 100);
             moveBlockWorkerId = setInterval(moveBlock, 100);
-
             runWorkerId = setInterval(run, 100);
+            runSound.play();
             backgroundWorkerId = setInterval(moveBackground, 100);
             scoreWorkerId = setInterval(updateScore, 100)
         }
@@ -18,10 +29,12 @@ function keyCheck(event) {
     if (event.which == 32) {
 
         if (jumpWorkerId == 0) {
-
-
             clearInterval(runWorkerId);
+            runWorkerId = -1;
+            runSound.pause();
+
             jumpWorkerId = setInterval(jump, 100);
+            jumpSound.play();
         }
 
     }
@@ -48,7 +61,7 @@ function run() {
 //jump
 var jumpWorkerId = 0;
 var jumpImageNumber = 1;
-var playerMarginTop = 320;
+var playerMarginTop = 310;
 
 function jump() {
     jumpImageNumber++;
@@ -70,6 +83,8 @@ function jump() {
 
         clearInterval(jumpWorkerId);
         runWorkerId = setInterval(run, 100);
+        runSound.play();
+
         jumpWorkerId = 0;
 
         if (backgroundWorkerId == 0) {
@@ -141,6 +156,8 @@ function moveBlock() {
         if (newMarginLeft < 178 & newMarginLeft > 58) {
             if (playerMarginTop > 260) {
                 clearInterval(runWorkerId);
+                runSound.pause();
+
                 clearInterval(backgroundWorkerId);
                 clearInterval(blockWorkerId);
                 clearInterval(moveBlockWorkerId);
@@ -149,6 +166,7 @@ function moveBlock() {
                 jumpWorkerId = jumpWorkerId - 1; //Above, there's a process to assign 0 to jumpWorkerId.
 
                 deadWorkerId = setInterval(dead, 100);
+                deadSound.play();
 
             }
         }
@@ -173,7 +191,7 @@ function dead() {
     deadImageNumber++;
     if (deadImageNumber == 11) {
         deadImageNumber = 10;
-        player.style.marginTop = "320px";
+        player.style.marginTop = "310px";
 
         document.getElementById("endScreen").style.visibility = "visible";
         document.getElementById("endScore").innerHTML = newScore;
@@ -181,4 +199,8 @@ function dead() {
 
 
     player.src = "Dead (" + deadImageNumber + ").png"
+}
+
+function reload() {
+    location.reload();
 }

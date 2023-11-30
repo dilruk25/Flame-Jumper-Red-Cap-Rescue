@@ -14,7 +14,7 @@
 .player {
     position: absolute;
     height: 250px;
-    margin-top: 320px;
+    margin-top: 310px;
 }
 
 .block {
@@ -74,6 +74,6 @@
 }
 
 .endScore{
-    color: rgb(138, 9, 9);
+    color: rgb(214, 39, 39);
     font-weight: bold;
 }
