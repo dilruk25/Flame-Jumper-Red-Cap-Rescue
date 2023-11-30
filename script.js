@@ -72,6 +72,21 @@ function jump() {
         runWorkerId = setInterval(run, 100);
         jumpWorkerId = 0;
 
+        if (backgroundWorkerId == 0) {
+            backgroundWorkerId = setInterval(moveBackground, 100);
+        }
+
+        if (blockWorkerId == 0) {
+            blockWorkerId = setInterval(createBlock, 100);
+        }
+
+        if (moveBlockWorkerId == 0) {
+            moveBlockWorkerId = setInterval(moveBlock, 100);
+        }
+
+        if (scoreWorkerId == 0) {
+            scoreWorkerId = setInterval(updateScore, 100);
+        }
     }
 
     player.src = "Jump (" + jumpImageNumber + ").png";
@@ -125,7 +140,16 @@ function moveBlock() {
 
         if (newMarginLeft < 178 & newMarginLeft > 58) {
             if (playerMarginTop > 260) {
-                alert("Dead")
+                clearInterval(runWorkerId);
+                clearInterval(backgroundWorkerId);
+                clearInterval(blockWorkerId);
+                clearInterval(moveBlockWorkerId);
+                clearInterval(scoreWorkerId);
+                clearInterval(jumpWorkerId);
+                jumpWorkerId = jumpWorkerId - 1; //Above, there's a process to assign 0 to jumpWorkerId.
+
+                deadWorkerId = setInterval(dead, 100);
+
             }
         }
     }
@@ -134,9 +158,24 @@ function moveBlock() {
 
 // update score
 var score = document.getElementById("score");
-var newScore = 0; 
+var newScore = 0;
 var scoreWorkerId = 0;
 function updateScore() {
     newScore++;
     score.innerHTML = newScore;
+}
+
+//Dead
+var deadWorkerId = 0;
+var deadImageNumber = 1;
+
+function dead() {
+    deadImageNumber++;
+    if (deadImageNumber == 11) {
+        deadImageNumber = 10;
+        player.style.marginTop = "320px";
+    }
+
+
+    player.src = "Dead (" + deadImageNumber + ").png"
 }
