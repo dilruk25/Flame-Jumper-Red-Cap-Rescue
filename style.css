@@ -26,12 +26,54 @@
     margin-top: 430px;
 }
 
-.score{
+.score {
     position: absolute;
     font-size: 80px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     margin-left: 50px;
+}
 
+.endScreen {
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    background-color: rgb(58, 58, 255);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 440px;
+    margin-top: 100px;
+
+    border-radius: 30px;
+    visibility: hidden;
+}
+
+.btn {
+    width: 350px;
+    height: 50px;
+    background-color: rgb(20, 20, 78);
+    border: none;
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin-top: 20px;
+
+    cursor: pointer;
+}
+
+.endScore{
+    color: rgb(138, 9, 9);
+    font-weight: bold;
 }

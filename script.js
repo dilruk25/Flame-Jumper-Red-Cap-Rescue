@@ -174,6 +174,9 @@ function dead() {
     if (deadImageNumber == 11) {
         deadImageNumber = 10;
         player.style.marginTop = "320px";
+
+        document.getElementById("endScreen").style.visibility = "visible";
+        document.getElementById("endScore").innerHTML = newScore;
     }
 
 
