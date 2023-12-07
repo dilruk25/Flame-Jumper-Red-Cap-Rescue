@@ -1,12 +1,12 @@
 //run sound
-var runSound = new Audio("run.mp3");
+var runSound = new Audio("assets/run.mp3");
 runSound.loop = true;
 
 //jump sound
-var jumpSound = new Audio("jump.mp3");
+var jumpSound = new Audio("assets/jump.mp3");
 
 //dead sound
-var deadSound = new Audio('dead.mp3');
+var deadSound = new Audio('assets/dead.mp3');
 
 
 function keyCheck(event) {
@@ -55,7 +55,7 @@ function run() {
         runImageNumber = 1
     }
 
-    player.src = "Run (" + runImageNumber + ").png"; //2 3 4 5 6 7 8 - 1 
+    player.src = "assets/Run (" + runImageNumber + ").png"; //2 3 4 5 6 7 8 - 1 
 }
 
 //jump
@@ -104,7 +104,7 @@ function jump() {
         }
     }
 
-    player.src = "Jump (" + jumpImageNumber + ").png";
+    player.src = "assets/Jump (" + jumpImageNumber + ").png";
 }
 
 //background
@@ -198,7 +198,7 @@ function dead() {
     }
 
 
-    player.src = "Dead (" + deadImageNumber + ").png"
+    player.src = "assets/Dead (" + deadImageNumber + ").png"
 }
 
 function reload() {
