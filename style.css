@@ -5,6 +5,7 @@
     background-size: cover;
     overflow-x: scroll;
     position: absolute;
+    transition: background-position-x 0.1s linear;
 }
 
 .body {
@@ -24,6 +25,7 @@
     background-image: url("assets/flame.gif");
     background-size: cover;
     margin-top: 430px;
+    transition: margin-left 0.1s linear;
 }
 
 .score {
