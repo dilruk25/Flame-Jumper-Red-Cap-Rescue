@@ -1,7 +1,7 @@
 .background {
     width: 100vw;
     height: 100vh;
-    background-image: url(assets/background.png);
+    background-image: url(../assets/background.png);
     background-size: cover;
     overflow-x: scroll;
     position: absolute;
@@ -22,7 +22,7 @@
     position: absolute;
     width: 80px;
     height: 150px;
-    background-image: url("assets/flame.gif");
+    background-image: url("../assets/flame.gif");
     background-size: cover;
     margin-top: 430px;
     transition: margin-left 0.1s linear;

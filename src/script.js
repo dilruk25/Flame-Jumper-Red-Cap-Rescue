@@ -1,6 +1,6 @@
-var runSound = new Audio("assets/run.mp3");
-var jumpSound = new Audio("assets/jump.mp3");
-var deadSound = new Audio('assets/dead.mp3');
+var runSound = new Audio("../assets/run.mp3");
+var jumpSound = new Audio("../assets/jump.mp3");
+var deadSound = new Audio('../assets/dead.mp3');
 
 runSound.loop = true;
 
@@ -36,7 +36,7 @@ var runImageNumber = 1;
 
 function run() {
     runImageNumber = (runImageNumber % 8) + 1;
-    player.src = "assets/Run (" + runImageNumber + ").png";
+    player.src = "../assets/Run (" + runImageNumber + ").png";
 }
 
 //jump
@@ -87,7 +87,7 @@ function jump() {
         }
     }
 
-    player.src = "assets/Jump (" + jumpImageNumber + ").png";
+    player.src = "../assets/Jump (" + jumpImageNumber + ").png";
 }
 
 function moveBlocksUp(amount) {
@@ -193,7 +193,7 @@ function dead() {
         document.getElementById("endScore").innerHTML = newScore;
     }
 
-    player.src = "assets/Dead (" + deadImageNumber + ").png";
+    player.src = "../assets/Dead (" + deadImageNumber + ").png";
 }
 
 function reload() {
